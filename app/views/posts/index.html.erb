@@ -1,0 +1,19 @@
+<h1>Welcome to Ask A Friend!</h1>
+
+<div>
+<%= link_to "Sign Up", new_user_registration_path %>
+</br>
+<%= link_to "Sign In",  new_user_session_path %>
+</br>
+</div>
+</br>
+<div>
+  <%= link_to "Ask A Question", new_post_path %>
+</div>
+
+</br>
+<div>
+  <% @posts.each do |f| %>
+  <%= link_to "#{f.title}", post_path(f) %>
+  <% end %>
+</div>
