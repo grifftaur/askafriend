@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <p>Title: <%= @post.title %></p></br>
 <p>Category: <%= @post.category %></p></br>
 <p>Body: <%= @post.body %></p></br>
@@ -6,3 +9,21 @@
 <%= link_to 'Home', root_path %>
 <%= link_to 'Edit', edit_post_path(@post) %>
 <%= link_to 'Delete', @post, method: :delete, data: {confirm: "Are you sure you want to delete #{@post.title}?"} %>
+
+
+<%= render :partial => "comments/comment" %>
+</div>
+
+<br />
+<div class="container">
+  <table class="table table-striped">
+    <tbody>
+      <% @post.comments.each do |f| %>
+      <tr>
+        <td><%= f.text %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  </div>
