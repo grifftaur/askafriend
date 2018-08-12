@@ -1,11 +1,14 @@
 <div class="container">
 
-<h1>Welcome to Ask A Friend!</h1>
+<h1>Ask A Friend!</h1>
 
 <br />
 
 <div>
+  <% if user_signed_in? %>
   Welcome back <%= current_user.username %>
+  <% end %>
+
 </div>
 
 <div>
@@ -21,7 +24,15 @@
 </div>
 </br>
 <div>
+  <% if user_signed_in? %>
   <%= link_to "Submit A Question", new_post_path %>
+  <% else %>
+  <p><%="Please Sign Up or Sign In to Submit a question." %></p>
+
+  <%end %>
+
+
+  </p>
 </div>
 
 </br>

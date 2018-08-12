@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
+    #@posts = Post.all.includes(:comments) <-- had this originally not sure why
   end
 
   def show
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
     if @post.save
       redirect_to @post
@@ -40,6 +42,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to root_path, notice: "Post was successfully deleted!"
+  end
+
+  def downvote
+    #@post = Post.find(params[:id])
+    #@comment = @post.comments.find(params[:id])
+    #@comment.downvote_from current_user
+    #redirect_to @post
   end
 
   private

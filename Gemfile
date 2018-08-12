@@ -27,6 +27,7 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'pry-rails', '~> 0.3.6'
 gem 'better_errors', '~> 2.4'
 gem 'bootstrap'
+gem 'font-awesome-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
